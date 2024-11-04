@@ -9,4 +9,6 @@ service productService {
 
     entity Invoice_Details as projection on db.Invoice_Details where exists Configurations;
 
+    //entity ConfigurationInvoice as projection on db.ConfigurationInvoice;
+
 }
