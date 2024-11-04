@@ -12,6 +12,8 @@ entity Products {
 entity Configuration {
     key ID_Configuration  : UUID;
     ID_Mobile             : Association to Products;
+    ID_Invoice            : UUID;
+    Invoice               : Association to Invoice_Details on Invoice.ID_Invoice = ID_Invoice; 
     Config_Name           : String(100);
     RAM                   : Integer;
     Storage               : Integer;
@@ -24,6 +26,6 @@ entity Configuration {
 @cds.persistence.table
 entity Invoice_Details {
     key ID_Invoice        : UUID;
-    ID_Configuration      : Association to Configuration;
+    Configurations        : Association to many Configuration on Configurations.ID_Invoice = $self.ID_Invoice;
     Subtotal              : Decimal(15,2);
 }

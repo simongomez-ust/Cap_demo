@@ -7,6 +7,6 @@ service productService {
 
     entity Configuration as projection on db.Configuration where exists ID_Mobile;
 
-    entity Invoice_Details as projection on db.Invoice_Details where exists ID_Configuration;
+    entity Invoice_Details as projection on db.Invoice_Details where exists Configurations;
 
 }
