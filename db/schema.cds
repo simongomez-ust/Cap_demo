@@ -5,14 +5,13 @@ entity Products {
     key ID_Mobile         : UUID;
     Name                  : String(100);
     Brand                 : String(50);
-    Price                 : Decimal(15,2);
-}
+ }
 
 @cds.persistence.table
 entity Configuration {
     key ID_Configuration  : UUID;
     ID_Mobile             : Association to Products;
-    Invoices              : Composition of many ConfigurationInvoice on Invoices.Configuration = $self; 
+    Invoices              : Association to many ConfigurationInvoice on Invoices.Configuration = $self; 
     Config_Name           : String(100);
     RAM                   : Integer;
     Storage               : Integer;
@@ -20,12 +19,13 @@ entity Configuration {
     Display               : String(50);
     Battery               : Integer;
     Config_Price          : Decimal(15,2);
+    Stock                 : Integer;
 }
 
 @cds.persistence.table
 entity Invoice_Details {
     key ID_Invoice        : UUID;
-    Configurations        : Composition of many ConfigurationInvoice on Configurations.Invoice = $self;
+    Configurations        : Association to many ConfigurationInvoice on Configurations.Invoice = $self;
     Subtotal              : Decimal(15,2);
 }
 
