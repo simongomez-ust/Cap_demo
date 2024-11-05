@@ -1,15 +1,71 @@
-const productService = require('./product-service');
 
-// srv/product-service.js
+const { uuid } = require("@sap/cds/lib/utils/cds-utils");
 
-function calculateTotal(configurations) {
-    let total = 0;
-    configurations.forEach(config => {
-        total += config.price;
-    });
-    return total;
-}
-module.exports = function(){
-    const { Invoice_Details } = this.entities;
-    this.on('READ', Invoice_Details, async (req) => ({...req.data, Subtotal: calculateTotal(req.data.configurations)}));
+module.exports = function productService() {
+  const { Invoice_Details, ConfigurationInvoice, Configuration} = this.entities;
+// Service Events  ----------------------------
+
+  this.on("CREATE", Invoice_Details, async (request) => {
+    const { Configurations } = request.data;
+
+    const invoiceId = uuid();
+    const subtotal = calculateSubtotal(Configurations);
+
+    const invoice = await insterInvoice(invoiceId, subtotal);
+    
+    await insertConfigurationsInToInvoice(Configurations, invoiceId);
+    
+    return { ...invoice, ID_Invoice: invoiceId };
+  });
+
+  this.on("READ", Invoice_Details, async () => {
+    const invoices = await SELECT.from(Invoice_Details);
+
+    const invoicesWithConfigurations = await Promise.all(invoices.map(async (invoice) => {
+      const configurationsInInvoice = await SELECT.from(ConfigurationInvoice).where({ Invoice_ID_Invoice: invoice.ID_Invoice });
+
+      const configurations = await getConfigurations(configurationsInInvoice);
+      return { ...invoice, Configurations: configurations };       
+    }));
+  
+    return invoicesWithConfigurations;
+  });
+
+// Additonal functions  ----------------------------
+  
+  async function getConfigurations(configurationsInInvoice) {
+    return Promise.all(configurationsInInvoice.map(async (configurationInInvoice) => 
+      SELECT.one.from(Configuration).where({ ID_Configuration: configurationInInvoice.Configuration_ID_Configuration })
+    ));
+  }
+
+  async function insertConfigurationsInToInvoice(Configurations, invoiceId) {
+
+    const configurationInvoices = Configurations.map(configuration => ({
+      Configuration_ID_Configuration: configuration.ID_Configuration,
+      Invoice_ID_Invoice: invoiceId
+    }));
+
+    await INSERT(configurationInvoices).into(ConfigurationInvoice);
+  }
+
+  async function insterInvoice(invoiceId, subtotal) {
+
+    const invoice = {
+      ID_Invoice: invoiceId,
+      Subtotal: subtotal,
+    };
+    
+    return await INSERT(invoice).into(Invoice_Details);
+  }
 };
+
+function calculateSubtotal(configurations) {
+  let totalAmount = 0;
+  if (Array.isArray(configurations)) {
+    configurations.forEach((config) => {
+      totalAmount += config.Config_Price;
+    });
+  }
+  return totalAmount;
+}

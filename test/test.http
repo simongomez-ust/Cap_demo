@@ -1,0 +1,6 @@
+POST http://localhost:4004/browse/createPurchaseDetail
+Content-Type: application/json
+
+{
+  "config": "16625531-d167-4462-8077-bd3f422830f7"
+}
