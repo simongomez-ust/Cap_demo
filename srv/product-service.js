@@ -31,7 +31,15 @@ module.exports = function productService() {
     return invoicesWithConfigurations;
   });
 
-// Additonal functions  ----------------------------
+  this.on('reduceStock', async (req) => {
+    let { config: id } = req.data;
+    let selectConfig = await SELECT.one.from(Configuration).where({ ID_Configuration: id });
+   
+    if (selectConfig) {
+        let newStock = selectConfig.Stock - 1;
+        await UPDATE(Configuration,id) .set({Stock: newStock});
+    }
+});
   
   async function getConfigurations(configurationsInInvoice) {
     return Promise.all(configurationsInInvoice.map(async (configurationInInvoice) => 
@@ -39,9 +47,9 @@ module.exports = function productService() {
     ));
   }
 
-  async function insertConfigurationsInToInvoice(Configurations, invoiceId) {
+  async function insertConfigurationsInToInvoice(configurations, invoiceId) {
 
-    const configurationInvoices = Configurations.map(configuration => ({
+    const configurationInvoices = configurations.map(configuration => ({
       Configuration_ID_Configuration: configuration.ID_Configuration,
       Invoice_ID_Invoice: invoiceId
     }));
