@@ -1,4 +1,4 @@
-ID_Configuration,ID_Mobile_ID_Mobile,Config_Name,RAM,Storage,Processor,Display,Battery,Config_Price,Stock
+ID,mobile_ID,config_name,ram,storage,processor,display,battery,config_price,stock
 "16625531-d167-4462-8077-bd3f422830f7","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4GB","64GB","A14 Bionic","6.1","2815mAh",799,50
 "61b11fd7-90fb-44e6-9fbe-3c41191f76d2","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4GB","128GB",A14 Bionic,"6.1","2815mAh",849,30
 "77668b57-71ef-4301-960c-37c2ce7e1e8c","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4GB","256GB",A14 Bionic,"6.1","2815mAh",949,20

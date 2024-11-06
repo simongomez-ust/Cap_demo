@@ -5,11 +5,11 @@ service productService {
 
     entity Products as projection on db.Products;
 
-    entity Configuration as projection on db.Configuration where exists ID_Mobile;
+    entity Configuration as projection on db.Configuration where exists mobile;
 
-    entity Invoice_Details as projection on db.Invoice_Details where exists Configurations;
+    entity Invoice_Details as projection on db.Invoice_Details where exists configurations;
         
     entity ConfigurationInvoice as projection on db.ConfigurationInvoice;
 
-    action reduceStock(config: Configuration:ID_Configuration); 
+    action reduceStock(config: Configuration:ID); 
 }
