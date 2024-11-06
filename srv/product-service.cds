@@ -10,6 +10,4 @@ service productService {
     entity Invoice_Details as projection on db.Invoice_Details where exists configurations;
         
     entity ConfigurationInvoice as projection on db.ConfigurationInvoice;
-
-    action reduceStock(config: Configuration:ID); 
 }

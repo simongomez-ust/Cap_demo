@@ -44,18 +44,7 @@ module.exports = function productService() {
   
     return invoicesWithConfigurations;
   });
-
-  this.on('reduceStock', async (req) => {
-    let { config: id } = req.data;
-    let selectConfig = await SELECT.one.from(Configuration).where({ ID: id });
-   
-    if (!selectConfig) return req.error (404, `Configuration #${id} doesn't exist`)
-    if (selectConfig.stock <= 0) return req.error (400, `Not enough stock`)
-      
-    let newStock = selectConfig.stock - 1;
-    await UPDATE(Configuration,id) .set({stock: newStock});
-});
-
+  
 async function insertInvoice(invoiceId, subtotal) {
 
   const invoice = {
