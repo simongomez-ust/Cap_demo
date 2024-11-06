@@ -28,16 +28,16 @@ Content-Type: application/json
             "stock": 60
         },
         {
-            "ID": "309ffaff-101a-4f8b-b53b-682a75539c6e",
-            "mobile": "0771e0fe-d687-4087-8265-df18c9f68c59",
+            "ID": "5c0c370d-12a2-4623-9a9c-ab19330fd1d6",
+            "mobile_ID": "0771e0fe-d687-4087-8265-df18c9f68c59",
             "config_name": "iPhone 12 Pro Max",
             "ram": "6GB",
-            "storage": "128GB",
+            "storage": "512GB",
             "processor": "A14 Bionic",
             "display": "6.7",
             "battery": "3687mAh",
-            "config_price": 1099,
-            "stock": 35
+            "config_price": 1399,
+            "stock": 1
         }
     ]
 }

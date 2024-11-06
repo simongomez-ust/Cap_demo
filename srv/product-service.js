@@ -4,18 +4,31 @@ const { uuid } = require("@sap/cds/lib/utils/cds-utils");
 
 module.exports = function productService() {
   const { Invoice_Details, ConfigurationInvoice, Configuration} = this.entities;
-// Service Events  ----------------------------
-
   this.on("CREATE", Invoice_Details, async (request) => {
     const { configurations } = request.data;
-    
+ 
+    // Verificar el stock antes de la creación
+
+    for (const config of configurations) {
+      const configuration = await SELECT.one.from(Configuration,config.ID);
+ 
+      if (!configuration || configuration.stock <= 0) {
+        return request.error(400, `Stock is not sufficient for configuration ID ${config.ID}`);
+      }
+    }
+ 
+    // Reducir el stock si las comprobaciones son correctas
+    for (const config of configurations) {
+      await callReduceStock(config.ID,request);
+    }
+ 
     const invoiceId = uuid();
     const subtotal = calculateSubtotal(configurations);
-
-    const invoice = await insterInvoice(invoiceId, subtotal);
-    
+ 
+    const invoice = await insertInvoice(invoiceId, subtotal);
+   
     await insertConfigurationsInToInvoice(configurations, invoiceId);
-    
+   
     return { ...invoice, invoice_ID: invoiceId };
   });
 
@@ -36,11 +49,22 @@ module.exports = function productService() {
     let { config: id } = req.data;
     let selectConfig = await SELECT.one.from(Configuration).where({ ID: id });
    
-    if (selectConfig) {
-        let newStock = selectConfig.stock - 1;
-        await UPDATE(Configuration,id) .set({stock: newStock});
-    }
+    if (!selectConfig) return req.error (404, `Configuration #${id} doesn't exist`)
+    if (selectConfig.stock <= 0) return req.error (400, `Not enough stock`)
+      
+    let newStock = selectConfig.stock - 1;
+    await UPDATE(Configuration,id) .set({stock: newStock});
 });
+
+async function insertInvoice(invoiceId, subtotal) {
+
+  const invoice = {
+    ID: invoiceId,
+    subtotal: subtotal,
+  };
+  
+  return await INSERT(invoice).into(Invoice_Details);
+}
   
   async function getConfigurations(configurationsInInvoice) {
     return Promise.all(configurationsInInvoice.map(async (configurationInInvoice) => 
@@ -58,14 +82,16 @@ module.exports = function productService() {
     await INSERT(configurationInvoices).into(ConfigurationInvoice);
   }
 
-  async function insterInvoice(invoiceId, subtotal) {
+  
 
-    const invoice = {
-      ID: invoiceId,
-      subtotal: subtotal,
-    };
-    
-    return await INSERT(invoice).into(Invoice_Details);
+  async function callReduceStock(config,req) {
+     let selectConfig = await SELECT.one.from(Configuration,config)
+     
+      if (!selectConfig) return req.error (404, `Configuration #${config} doesn't exist`)
+      if (selectConfig.stock <= 0) return req.error (400, `Not enough stock`)
+        
+      let newStock = selectConfig.stock - 1;
+      await UPDATE(Configuration,config) .set({stock: newStock});
   }
 };
 
@@ -79,3 +105,4 @@ function calculateSubtotal(configurations) {
 
   return totalAmount;
 }
+
