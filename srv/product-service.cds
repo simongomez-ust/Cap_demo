@@ -8,7 +8,8 @@ service productService {
     entity Configuration as projection on db.Configuration where exists ID_Mobile;
 
     entity Invoice_Details as projection on db.Invoice_Details where exists Configurations;
+        
+    entity ConfigurationInvoice as projection on db.ConfigurationInvoice;
 
-    //entity ConfigurationInvoice as projection on db.ConfigurationInvoice;
-
+    action reduceStock(config: Configuration:ID_Configuration); 
 }

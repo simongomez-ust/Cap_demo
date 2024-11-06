@@ -1,0 +1,6 @@
+POST http://localhost:4004/odata/v4/product/reduceStock
+Content-Type: application/json
+
+{
+  "config": "5c0c370d-12a2-4623-9a9c-ab19330fd1d6"
+}
