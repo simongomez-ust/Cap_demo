@@ -12,6 +12,7 @@ entity Configuration {
     key ID  : UUID;
     mobile                : Association to Products;
     invoices              : Association to many ConfigurationInvoice on invoices.configuration = $self; 
+    shoping_carts         : Association to many CartConfigurations on shoping_carts.configuration = $self; 
     config_name           : String(100);
     ram                   : Integer;
     storage               : Integer;
@@ -20,6 +21,18 @@ entity Configuration {
     battery               : Integer;
     config_price          : Decimal(15,2);
     stock                 : Integer;
+}
+
+@cds.persistence.table
+entity Shoping_Cart {
+    key ID                : UUID;
+    configurations        : Association to many CartConfigurations on configurations.shoping_cart = $self;
+}
+
+@cds.persistence.table
+entity CartConfigurations {
+    configuration         : Association to Configuration;
+    shoping_cart          : Association to Shoping_Cart;
 }
 
 @cds.persistence.table

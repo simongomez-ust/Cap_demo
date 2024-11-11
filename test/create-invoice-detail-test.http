@@ -7,8 +7,8 @@ Content-Type: application/json
             "ID": "16625531-d167-4462-8077-bd3f422830f7",
             "mobile": "6d4b5141-2279-43ef-bea4-ba008d6062f9",
             "config_name": "iPhone 12",
-            "ram": "4GB",
-            "storage": "64GB",
+            "ram": "4",
+            "storage": "64",
             "processor": "A14 Bionic",
             "display": "6.1",
             "battery": "2815mAh",
@@ -19,8 +19,8 @@ Content-Type: application/json
             "ID": "26a02eb0-dbb3-4bfb-9030-7c09fbd4b25c",
             "mobile": "8d847065-f735-409d-a048-567f35af296e",
             "config_name": "iPhone 11",
-            "ram": "4GB",
-            "storage": "64GB",
+            "ram": "4",
+            "storage": "64",
             "processor": "A13 Bionic",
             "display": "6.1",
             "battery": "3110mAh",
@@ -31,13 +31,21 @@ Content-Type: application/json
             "ID": "5c0c370d-12a2-4623-9a9c-ab19330fd1d6",
             "mobile_ID": "0771e0fe-d687-4087-8265-df18c9f68c59",
             "config_name": "iPhone 12 Pro Max",
-            "ram": "6GB",
-            "storage": "512GB",
+            "ram": "6",
+            "storage": "512",
             "processor": "A14 Bionic",
             "display": "6.7",
             "battery": "3687mAh",
             "config_price": 1399,
             "stock": 1
         }
+    ]
+}
+###
+POST http://localhost:4004/odata/v4/product/Invoice_Details
+Content-Type: application/json
+
+{
+    "configurations": [
     ]
 }

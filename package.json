@@ -23,12 +23,20 @@
     "start": "cds-serve"
   },
   "cds": {
+    "cdsc": {
+      "severities": {
+        "odata-spec-violation-no-key": "Warning"
+      }
+    },
     "sql": {
       "native_hana_associations": false
     },
     "requires": {
       "auth": "mocked",
       "[hybrid]": {
+        "db": "hana"
+      },
+      "[production]": {
         "db": "hana"
       }
     }
