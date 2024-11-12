@@ -1,22 +1,22 @@
 ID,mobile_ID,config_name,ram,storage,processor,display,battery,config_price,stock
-"16625531-d167-4462-8077-bd3f422830f7","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4","64","A14 Bionic","6.1","2815mAh",799,50
-"61b11fd7-90fb-44e6-9fbe-3c41191f76d2","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4","128",A14 Bionic,"6.1","2815mAh",849,30
-"77668b57-71ef-4301-960c-37c2ce7e1e8c","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4","256",A14 Bionic,"6.1","2815mAh",949,20
-"40f249b6-8868-4040-870f-7476d2d71d10","2c9fb49b3-f51e-42c1-8ddf-ae4ad30a289a","iPhone 12 Pro","6","128","A14 Bionic","6.1","2815mAh",999,40
-"71c959f3-2deb-4bfc-8295-3d8949f0efab","2c9fb49b3-f51e-42c1-8ddf-ae4ad30a289a","iPhone 12 Pro","6","256","A14 Bionic","6.1","2815mAh",1099,25
-"eb0f2ede-b536-4757-85a0-28dda5b5407d","2c9fb49b3-f51e-42c1-8ddf-ae4ad30a289a","iPhone 12 Pro","6","512","A14 Bionic","6.1","2815mAh",1299,15
-"309ffaff-101a-4f8b-b53b-682a75539c6e","0771e0fe-d687-4087-8265-df18c9f68c59","iPhone 12 Pro Max","6","128","A14 Bionic","6.7","3687mAh",1099,35
-"5dbad49e-744f-4429-8f3e-0b8660afd17f","0771e0fe-d687-4087-8265-df18c9f68c59","iPhone 12 Pro Max","6","256","A14 Bionic","6.7","3687mAh",1199,20
-"5c0c370d-12a2-4623-9a9c-ab19330fd1d6","0771e0fe-d687-4087-8265-df18c9f68c59","iPhone 12 Pro Max","6","512","A14 Bionic","6.7","3687mAh",1399,1
-"26a02eb0-dbb3-4bfb-9030-7c09fbd4b25c","8d847065-f735-409d-a048-567f35af296e","iPhone 11","4","64","A13 Bionic","6.1","3110mAh",599,60
-"e7b24883-a205-4435-a228-3486c09f302e","8d847065-f735-409d-a048-567f35af296e","iPhone 11","4","128","A13 Bionic","6.1","3110mAh",649,45
-"74b7df85-4f55-470c-b6f1-c6cb0c89570f","8d847065-f735-409d-a048-567f35af296e","iPhone 11","4","256","A13 Bionic","6.1","3110mAh",749,25
-"b1a8d5e4-3b6e-4b8a-9d3e-1c1a5b6e7f8a","9f8b7c6d-5e4a-3b2c-1d0e-9a8b7c6d5e4a","Samsung Galaxy S21","8","128","Exynos 2100","6.2","4000mAh",799,40
-"c2b9e6f5-4c7d-5e8f-9a0b-1c2d3e4f5g6h","9f8b7c6d-5e4a-3b2c-1d0e-9a8b7c6d5e4a","Samsung Galaxy S21","8","256","Exynos 2100","6.2","4000mAh",849,30
-"d3c0f7g6-5d8e-6f9g-0a1b-2d3e4f5g6h7i","9f8b7c6d-5e4a-3b2c-1d0e-9a8b7c6d5e4a","Samsung Galaxy S21","8","512","Exynos 2100","6.2","4000mAh",949,20
-"e4d1g8h7-6e9f-7g0h-1b2c-3e4f5g6h7i8j","0a1b2c3d-4e5f-6g7h-8i9j-0a1b2c3d4e5f","Samsung Galaxy S21+","8","128","Exynos 2100","6.7","4800mAh",999,35
-"f5e2h9i8-7f0g-8h1i-2c3d-4e5f6g7h8i9j","0a1b2c3d-4e5f-6g7h-8i9j-0a1b2c3d4e5f","Samsung Galaxy S21+","8","256","Exynos 2100","6.7","4800mAh",1099,25
-"g6f3i0j9-8g1h-9i2j-3d4e-5f6g7h8i9j0k","0a1b2c3d-4e5f-6g7h-8i9j-0a1b2c3d4e5f","Samsung Galaxy S21+","8","512","Exynos 2100","6.7","4800mAh",1299,15
-"h7g4j1k0-9h2i-0j3k-4e5f-6g7h8i9j0k1l","1b2c3d4e-5f6g-7h8i-9j0k-1b2c3d4e5f6g","Samsung Galaxy S21 Ultra","12","128","Exynos 2100","6.8","5000mAh",1199,30
-"i8h5k2l1-0i3j-1k4l-5f6g-7h8i9j0k1l2m","1b2c3d4e-5f6g-7h8i-9j0k-1b2c3d4e5f6g","Samsung Galaxy S21 Ultra","12","256","Exynos 2100","6.8","5000mAh",1299,20
-"j9i6l3m2-1j4k-2l5m-6g7h-8i9j0k1l2m3n","1b2c3d4e-5f6g-7h8i-9j0k-1b2c3d4e5f6g","Samsung Galaxy S21 Ultra","12","512","Exynos 2100","6.8","5000mAh",1499,10
+"16625531-d167-4462-8077-bd3f422830f7","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4GB","64GB","A14 Bionic","6.1","2815mAh",799,50
+"61b11fd7-90fb-44e6-9fbe-3c41191f76d2","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4GB","128GB",A14 Bionic,"6.1","2815mAh",849,30
+"77668b57-71ef-4301-960c-37c2ce7e1e8c","6d4b5141-2279-43ef-bea4-ba008d6062f9","iPhone 12","4GB","256GB",A14 Bionic,"6.1","2815mAh",949,20
+"40f249b6-8868-4040-870f-7476d2d71d10","2c9fb49b3-f51e-42c1-8ddf-ae4ad30a289a","iPhone 12 Pro","6GB","128GB","A14 Bionic","6.1","2815mAh",999,40
+"71c959f3-2deb-4bfc-8295-3d8949f0efab","2c9fb49b3-f51e-42c1-8ddf-ae4ad30a289a","iPhone 12 Pro","6GB","256GB","A14 Bionic","6.1","2815mAh",1099,25
+"eb0f2ede-b536-4757-85a0-28dda5b5407d","2c9fb49b3-f51e-42c1-8ddf-ae4ad30a289a","iPhone 12 Pro","6GB","512GB","A14 Bionic","6.1","2815mAh",1299,15
+"309ffaff-101a-4f8b-b53b-682a75539c6e","0771e0fe-d687-4087-8265-df18c9f68c59","iPhone 12 Pro Max","6GB","128GB","A14 Bionic","6.7","3687mAh",1099,35
+"5dbad49e-744f-4429-8f3e-0b8660afd17f","0771e0fe-d687-4087-8265-df18c9f68c59","iPhone 12 Pro Max","6GB","256GB","A14 Bionic","6.7","3687mAh",1199,20
+"5c0c370d-12a2-4623-9a9c-ab19330fd1d6","0771e0fe-d687-4087-8265-df18c9f68c59","iPhone 12 Pro Max","6GB","512GB","A14 Bionic","6.7","3687mAh",1399,10
+"26a02eb0-dbb3-4bfb-9030-7c09fbd4b25c","8d847065-f735-409d-a048-567f35af296e","iPhone 11","4GB","64GB","A13 Bionic","6.1","3110mAh",599,60
+"e7b24883-a205-4435-a228-3486c09f302e","8d847065-f735-409d-a048-567f35af296e","iPhone 11","4GB","128GB","A13 Bionic","6.1","3110mAh",649,45
+"74b7df85-4f55-470c-b6f1-c6cb0c89570f","8d847065-f735-409d-a048-567f35af296e","iPhone 11","4GB","256GB","A13 Bionic","6.1","3110mAh",749,25
+"b1a8d5e4-3b6e-4b8a-9d3e-1c1a5b6e7f8a","9f8b7c6d-5e4a-3b2c-1d0e-9a8b7c6d5e4a","Samsung Galaxy S21","8GB","128GB","Exynos 2100","6.2","4000mAh",799,40
+"c2b9e6f5-4c7d-5e8f-9a0b-1c2d3e4f5g6h","9f8b7c6d-5e4a-3b2c-1d0e-9a8b7c6d5e4a","Samsung Galaxy S21","8GB","256GB","Exynos 2100","6.2","4000mAh",849,30
+"d3c0f7g6-5d8e-6f9g-0a1b-2d3e4f5g6h7i","9f8b7c6d-5e4a-3b2c-1d0e-9a8b7c6d5e4a","Samsung Galaxy S21","8GB","512GB","Exynos 2100","6.2","4000mAh",949,20
+"e4d1g8h7-6e9f-7g0h-1b2c-3e4f5g6h7i8j","0a1b2c3d-4e5f-6g7h-8i9j-0a1b2c3d4e5f","Samsung Galaxy S21+","8GB","128GB","Exynos 2100","6.7","4800mAh",999,35
+"f5e2h9i8-7f0g-8h1i-2c3d-4e5f6g7h8i9j","0a1b2c3d-4e5f-6g7h-8i9j-0a1b2c3d4e5f","Samsung Galaxy S21+","8GB","256GB","Exynos 2100","6.7","4800mAh",1099,25
+"g6f3i0j9-8g1h-9i2j-3d4e-5f6g7h8i9j0k","0a1b2c3d-4e5f-6g7h-8i9j-0a1b2c3d4e5f","Samsung Galaxy S21+","8GB","512GB","Exynos 2100","6.7","4800mAh",1299,15
+"h7g4j1k0-9h2i-0j3k-4e5f-6g7h8i9j0k1l","1b2c3d4e-5f6g-7h8i-9j0k-1b2c3d4e5f6g","Samsung Galaxy S21 Ultra","12GB","128GB","Exynos 2100","6.8","5000mAh",1199,30
+"i8h5k2l1-0i3j-1k4l-5f6g-7h8i9j0k1l2m","1b2c3d4e-5f6g-7h8i-9j0k-1b2c3d4e5f6g","Samsung Galaxy S21 Ultra","12GB","256GB","Exynos 2100","6.8","5000mAh",1299,20
+"j9i6l3m2-1j4k-2l5m-6g7h-8i9j0k1l2m3n","1b2c3d4e-5f6g-7h8i-9j0k-1b2c3d4e5f6g","Samsung Galaxy S21 Ultra","12GB","512GB","Exynos 2100","6.8","5000mAh",1499,10
