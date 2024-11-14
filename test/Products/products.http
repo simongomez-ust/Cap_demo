@@ -1,0 +1,21 @@
+POST https://2b87fc24trial-dev-products-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/product/Products
+Content-Type: application/json
+
+{
+    "name":"iPhone 13",
+    "brand":"Apple"
+}
+
+###
+GET https://2b87fc24trial-dev-products-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/product/Products
+###
+POST http://localhost:4004/odata/v4/product/Products
+Content-Type: application/json
+
+{
+    "name":"iPhone 13",
+    "brand":"Apple"
+}
+
+###
+GET http://localhost:4004/odata/v4/product/Products

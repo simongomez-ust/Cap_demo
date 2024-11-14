@@ -1,0 +1,34 @@
+POST http://localhost:4004/odata/v4/product/addToCart
+Content-Type: application/json
+
+{
+    "cart": "1e7b6d8e-9c2b-4f8e-8c2d-1a2b3c4d5e6f",
+    "config": "b1a8d5e4-3b6e-4b8a-9d3e-1c1a5b6e7f8a"
+}
+
+
+###
+POST http://localhost:4004/odata/v4/product/addToCart
+Content-Type: application/json
+
+{
+    "cart": "1e7b6d8e-9c2b-4f8e-8c2d-1a2b3c4d5e6f",
+    "config": "74b7df85-4f55-470c-b6f1-c6cb0c89570f"
+}
+
+###
+GET http://localhost:4004/odata/v4/product/CartConfigurations
+
+###
+GET http://localhost:4004/odata/v4/product/Shoping_Cart
+
+###
+POST http://localhost:4004/odata/v4/product/createInvoiceFromCart
+Content-Type: application/json
+
+{
+    "shoping_cart_ID": "1e7b6d8e-9c2b-4f8e-8c2d-1a2b3c4d5e6f"
+}
+
+###
+GET http://localhost:4004/odata/v4/product/Invoice_Details

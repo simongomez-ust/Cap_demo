@@ -22,19 +22,6 @@ entity Configuration {
     config_price          : Decimal(15,2);
     stock                 : Integer;
 }
- 
-@cds.persistence.table
-entity Shoping_Cart {
-    key ID                : UUID;
-    configurations        : Association to many CartConfigurations on configurations.shoping_cart = $self;
-}
- 
-@cds.persistence.table
-entity CartConfigurations {
-    key ID                : UUID;
-    configuration         : Association to Configuration;
-    shoping_cart          : Association to Shoping_Cart;
-}
 
 @cds.persistence.table
 entity Shoping_Cart {
@@ -44,6 +31,7 @@ entity Shoping_Cart {
 
 @cds.persistence.table
 entity CartConfigurations {
+    key ID                : UUID;
     configuration         : Association to Configuration;
     shoping_cart          : Association to Shoping_Cart;
 }

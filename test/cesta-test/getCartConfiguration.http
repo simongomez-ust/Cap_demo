@@ -1,1 +1,4 @@
 get http://localhost:4004/odata/v4/product/CartConfigurations
+
+###
+get http://localhost:4004/odata/v4/product/Shoping_Cart

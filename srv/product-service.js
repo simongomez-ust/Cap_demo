@@ -1,8 +1,18 @@
 const { log } = require("@sap/cds");
 const { uuid } = require("@sap/cds/lib/utils/cds-utils");
+const { DEFAULT } = require("@sap/cds/lib/utils/colors");
  
 module.exports = function productService() {
   const { Invoice_Details, ConfigurationInvoice, Configuration, Shoping_Cart, CartConfigurations} = this.entities;
+
+  this.on("CREATE",Shoping_Cart, async () => {
+    const id = uuid();
+    const cart = {
+      ID: id,
+    };
+    await INSERT.into(Shoping_Cart).entries(cart);
+    return cart;
+  });
 
   this.on("addToCart" , async (req) =>{
     const{ cart , config} = req.data
@@ -18,20 +28,20 @@ module.exports = function productService() {
     return cart_config;
   })
  
-  this.on("removeFromCart", req =>{
+  this.on("removeFromCart",async (req) =>{
     const{ cart , config} = req.data
  
     const cart_config = {
       configuration:config,
       shoping_cart:cart
     }
- 
-    DELETE(cart_config).one.from(CartConfigurations)
+    const deleted = await SELECT.one.from(CartConfigurations).where({configuration_ID:config,shoping_cart_ID:cart})
+    await DELETE.from(CartConfigurations).where(deleted)
   })
  
   this.on("createInvoiceFromCart", async (request) => {
-    const { shoping_cart_ID } = request.data;
-    const cartConfigurations = await SELECT.from(CartConfigurations).where({ shoping_cart_ID });
+    const { shoping_cart_ID:shopID } = request.data;
+    const cartConfigurations = await SELECT.from(CartConfigurations).where({ shoping_cart_ID:shopID });
     
     const configurations = await Promise.all(cartConfigurations.map(async ({ configuration_ID }) => {
       return await SELECT.one.from(Configuration, configuration_ID);
@@ -53,22 +63,20 @@ module.exports = function productService() {
     const invoice = await insertInvoice(invoiceId, subtotal);
    
     await insertConfigurationsInToInvoice(configurations, invoiceId);
+
+    await DELETE.from(CartConfigurations).where({shoping_cart_ID:shopID})
+    await DELETE.from(Shoping_Cart).where({ID:shopID})
+
    
     return { ...invoice, invoice_ID: invoiceId };
   });
- 
-  this.on("READ", Invoice_Details, async () => {
-    const invoices = await SELECT.from(Invoice_Details);
- 
-    const invoicesWithConfigurations = await Promise.all(invoices.map(async (invoice) => {
-      const configurationsInInvoice = await SELECT.from(ConfigurationInvoice).where({ invoice_ID: invoice.ID });
- 
-      const configs = await getConfigurations(configurationsInInvoice);
-      return { ...invoice, configurations: configs };      
-    }));
- 
-    return invoicesWithConfigurations;
-  });
+
+  this.on("removeUnusedCarts", async(req)=>{
+    //await DELETE.from(Shoping_Cart).where(`ID NOT IN (SELECT shoping_cart FROM CartConfigurations)`)
+    await DELETE.from(Shoping_Cart).where({
+      ID: { "not in": SELECT.from(CartConfigurations).columns("shoping_cart")},
+    });
+  })
   
 async function insertInvoice(invoiceId, subtotal) {
  
@@ -113,10 +121,10 @@ function calculateSubtotal(configurations) {
   let totalAmount = 0;
   if (Array.isArray(configurations)) {
     configurations.forEach((config) => {
-      totalAmount += config.config_price;
+      totalAmount += parseFloat(config.config_price);
     });
   }
  
-  return totalAmount;
+  return totalAmount.toFixed(2);
 }
  

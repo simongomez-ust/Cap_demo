@@ -5,3 +5,8 @@ Content-Type: application/json
     "cart": "1e7b6d8e-9c2b-4f8e-8c2d-1a2b3c4d5e6f",
     "config": "16625531-d167-4462-8077-bd3f422830f7"
 }
+
+###
+POST http://localhost:4004/odata/v4/product/Shoping_Cart
+###
+GET http://localhost:4004/odata/v4/product/Shoping_Cart
