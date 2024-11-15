@@ -24,7 +24,7 @@ entity Configuration {
 }
 
 @cds.persistence.table
-entity Shoping_Cart {
+entity Shopping_Cart {
     key ID                : UUID;
     configurations        : Association to many CartConfigurations on configurations.shoping_cart = $self;
 }
@@ -33,7 +33,7 @@ entity Shoping_Cart {
 entity CartConfigurations {
     key ID                : UUID;
     configuration         : Association to Configuration;
-    shoping_cart          : Association to Shoping_Cart;
+    shoping_cart          : Association to Shopping_Cart;
 }
 
 @cds.persistence.table

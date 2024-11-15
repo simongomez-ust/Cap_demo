@@ -11,12 +11,12 @@ service productService {
         
     entity ConfigurationInvoice as projection on db.ConfigurationInvoice;
 
-    entity Shoping_Cart as projection on db.Shoping_Cart;// where exists configurations;
+    entity Shopping_Cart as projection on db.Shopping_Cart;// where exists configurations;
  
     entity CartConfigurations as projection on db.CartConfigurations;
  
-    action addToCart(cart: Shoping_Cart:ID, config: Configuration:ID) returns CartConfigurations;
-    action createInvoiceFromCart(shoping_cart_ID: Shoping_Cart:ID) returns Invoice_Details;
+    action addToCart(cart: Shopping_Cart:ID, config: Configuration:ID) returns CartConfigurations;
+    action createInvoiceFromCart(shopping_cart_ID: Shopping_Cart:ID) returns Invoice_Details;
     action removeUnusedCarts();
-    action removeFromCart(cart: Shoping_Cart:ID, config: Configuration:ID);
+    action removeFromCart(cart: Shopping_Cart:ID, config: Configuration:ID);
 }

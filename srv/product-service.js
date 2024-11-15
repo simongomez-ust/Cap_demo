@@ -3,14 +3,14 @@ const { uuid } = require("@sap/cds/lib/utils/cds-utils");
 const { DEFAULT } = require("@sap/cds/lib/utils/colors");
  
 module.exports = function productService() {
-  const { Invoice_Details, ConfigurationInvoice, Configuration, Shoping_Cart, CartConfigurations} = this.entities;
+  const { Invoice_Details, ConfigurationInvoice, Configuration, Shopping_Cart, CartConfigurations} = this.entities;
 
-  this.on("CREATE",Shoping_Cart, async () => {
+  this.on("CREATE",Shopping_Cart, async () => {
     const id = uuid();
     const cart = {
       ID: id,
     };
-    await INSERT.into(Shoping_Cart).entries(cart);
+    await INSERT.into(Shopping_Cart).entries(cart);
     return cart;
   });
 
@@ -40,7 +40,7 @@ module.exports = function productService() {
   })
  
   this.on("createInvoiceFromCart", async (request) => {
-    const { shoping_cart_ID:shopID } = request.data;
+    const { shopping_cart_ID:shopID } = request.data;
     const cartConfigurations = await SELECT.from(CartConfigurations).where({ shoping_cart_ID:shopID });
     
     const configurations = await Promise.all(cartConfigurations.map(async ({ configuration_ID }) => {
@@ -65,15 +65,15 @@ module.exports = function productService() {
     await insertConfigurationsInToInvoice(configurations, invoiceId);
 
     await DELETE.from(CartConfigurations).where({shoping_cart_ID:shopID})
-    await DELETE.from(Shoping_Cart).where({ID:shopID})
+    await DELETE.from(Shopping_Cart).where({ID:shopID})
 
    
     return { ...invoice, invoice_ID: invoiceId };
   });
 
   this.on("removeUnusedCarts", async(req)=>{
-    //await DELETE.from(Shoping_Cart).where(`ID NOT IN (SELECT shoping_cart FROM CartConfigurations)`)
-    await DELETE.from(Shoping_Cart).where({
+    //await DELETE.from(Shopping_Cart).where(`ID NOT IN (SELECT shoping_cart FROM CartConfigurations)`)
+    await DELETE.from(Shopping_Cart).where({
       ID: { "not in": SELECT.from(CartConfigurations).columns("shoping_cart")},
     });
   })

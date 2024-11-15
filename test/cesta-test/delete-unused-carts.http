@@ -4,4 +4,4 @@ POST http://localhost:4004/odata/v4/product/removeUnusedCarts
 GET http://localhost:4004/odata/v4/product/CartConfigurations
 
 ###
-GET http://localhost:4004/odata/v4/product/Shoping_Cart
+GET http://localhost:4004/odata/v4/product/Shopping_Cart
